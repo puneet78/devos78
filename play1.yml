@@ -1,0 +1,13 @@
+---
+- name: "user creation"
+  hosts: "all"
+  tasks:
+    - name: "Creating directory"
+      file: "path=/var/tmp/testone state=directory"
+    - name: "create user"
+      user: "name=testone uid=8889 home=/var/tmp/testone"
+...
+   
+
+
+

@@ -1,0 +1,10 @@
+---
+- name: "Git"
+  hosts: "all"
+  tasks:
+    - name: "Git install"
+      yum: "name=git state=present"
+
+    - name: "User email config"
+      shell: 'git config --global user.email "puneetsetia1994@yahoo.com"; git config --global user.name "puneet setia"'
+... 

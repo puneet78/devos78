@@ -1,0 +1,15 @@
+---
+- name: "Group and User creation"
+  hosts: "all"
+  tasks:
+    - name: "Create directory"  
+      file: "path=/var/tmp/testdir mode=777 owner=root state=directory"
+
+    - name: "Create file"
+      file: "path=/var/tmp/testdir/testfile owner=testguser state=touch"
+
+    - name: "Copy file"
+      copy: "src=/var/log/messages dest=/var/tmp/testdir/testfile"
+...
+
+
