@@ -1,0 +1,14 @@
+---
+- name: "Git "
+  hosts: "all"
+  tasks:
+    - name: "HTTPD installation"
+      yum: "name=httpd state=present"
+
+    - name: "service start"
+      systemd: "name=httpd state=started enabled=true" 
+
+    - name: "file content"
+      copy: "dest='/var/www/html/index.html' content='Created using Ansible'"
+
+... 
