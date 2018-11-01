@@ -1,0 +1,8 @@
+---
+- name: "install Talk package"
+  hosts: "all"
+  tasks:
+    - name: "talk"
+      yum: "name=talk state=present"  
+
+...

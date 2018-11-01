@@ -1,0 +1,10 @@
+---
+- name: "Group and User creation"
+  hosts: "all"
+  tasks:
+    - name: "Group creation"
+      group: "name=testgroup gid=7777"
+
+    - name: "User creation"
+      user: "name=testguser uid=7777 shell=/bin/bash comment=myfirstuser group=7777"
+... 
