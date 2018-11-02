@@ -1,0 +1,18 @@
+---
+- name: "ntp app"
+  hosts: "all"
+  tasks: 
+    - name: "NTP installation"
+      yum: "name=ntp state=present"
+
+    - name: "Start service"
+      service: "name=ntpd enabled=true state=started"
+ 
+    - name: "Check NTP file"
+      file: "path='/etc/ntp.conf' state=touch"
+...
+
+      
+      
+    
+    

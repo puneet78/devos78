@@ -1,0 +1,22 @@
+---
+- name: "docker installation"
+  hosts: "all"
+  tasks:
+    - name: "remove all old packages"
+      yum: "name=docker state=absent"
+
+    - name: "install required packages"
+      yum: "name=yum-utils,device-mapper-persistent-data,lvm2 state=latest" 
+
+    - name: "Add repository"
+      yum_repository: "name=docker description=docker baseurl='https://download.docker.com/linux/centos/7/$basearch/stable'"
+
+    - name: "install docker package"
+      yum: "name=docker-ce state=latest enablerepo=docker"
+
+    - name: "start docker"
+      service: "name=docker state=started"
+
+    - name: "run hello-world"
+      command: "sudo docker run hello-world"
+...

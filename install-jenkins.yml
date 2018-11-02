@@ -1,0 +1,22 @@
+---
+- name: "docker installation"
+  hosts: "all"
+  tasks:
+ #   - name: "Add repository"
+ #     yum_repository: "name=jenkins description=jenkins baseurl='https//pkg.jenkins.io/redhat-stable/jenkins.repo'"
+
+    - name: wget
+      yum: "name=wget state=present"
+    - name: "Jenkins Setup for Factory"
+      shell: "wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo"
+
+    - name: "Add key"
+      rpm_key: "key='https://pkg.jenkins.io/redhat-stable/jenkins.io.key'"
+
+    - name: "install jenkins package"
+      yum: "name=jenkins state=latest"
+
+    - name: "start jenkins"
+      service: "name=jenkins state=started"
+
+...

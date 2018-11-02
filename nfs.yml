@@ -1,0 +1,12 @@
+---
+- name: "NFS Service"
+  hosts: "all"
+  tasks:
+    - name: "NFS installation"
+      yum: "name=nfs-utils state=present"
+
+
+    - name: "Service start and persistent"
+      service: "name=nfs state=started enabled=true"
+
+...
